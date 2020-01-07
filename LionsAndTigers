@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LionsTigers
+{
+    // Step 1: Create Classes for Lion, Tiger, and Jungle
+    // Step 2: Use the Factory Design Pattern to generate 100 Lions and 100 Tigers
+    // Step 3: Have them compete using if / then on Strength value
+    // done: Step 4: Use Variables to keep track of the number of winners for each
+    // to do: Add a method to walk over each array (lions and tigers), pull out object references
+    // do an if / then comparison, and update the number of winners variable.
+
+    class Jungle
+    {
+        static void Main(string[] args)
+        {
+            Lion[] lions = new Lion[100]; 
+            // This is the Factory Design Pattern
+            // This is one of the major design patterns in the world.
+            // We create object references in a LOOP
+            // and store those references in Data Structure
+            for (int i = 0; i <= 99; i++)
+            {
+                // we need a more complex data structure to track all object references
+                                
+                lions[i] = new Lion();
+            }
+            
+            Tiger tiger1 = new Tiger();
+            Console.Read();
+        }
+    }
+
+    class Feline
+    {
+        public Feline()
+        {
+            Strength = RandomNumberGenerator.GetStrength();
+        }
+
+        public String FelineName;
+        public int Strength;
+        public int GetStrength() {
+            return this.Strength;
+        }
+    }
+
+    class Lion : Feline
+    {
+        static int NumberOfWins = 0;
+    }
+
+    class Tiger : Feline
+    {
+        static int NumberOfWins = 0;
+    }
+
+    class RandomNumberGenerator
+    {
+        static Random randm = new Random();
+        public static int GetStrength()
+        {
+            int strength = randm.Next(1, 100);
+            return strength;
+        }
+    }
+
+
+}
